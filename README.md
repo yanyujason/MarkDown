@@ -46,7 +46,7 @@ Result: "Oh yes!" is printed out.
 
 ###Conclusion: 
 + 1. This mechanism can prove that we can prevent multiple xml importing procedures running at the same time. Also, this will have no effect on other reading operations on the locked Agency.
-+ 2. Since the lock can be used recuresively, we can add a new lock before publisher is created. This will avoid the dead lock.
++ 2. Since the lock can be used recursively, we can add a new lock before publisher is created. This will avoid the dead lock.(Note: if cannot recursively, the second lock only gets the resource after the first one releases while the first lock can release the resource only when the second lock releases the resource.)
 
 
 ##Optional Solution:
