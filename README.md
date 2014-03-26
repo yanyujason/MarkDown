@@ -1,8 +1,8 @@
 ##Use Case:
-    Threshold: 50
-    Currently active/activated: 49
-    2 listings sent through via REAXML. There will be a race condition where:
-    During the product_options resolutions, both requests will get a count of 49 and therefore successfully save both listing as active.
+>Threshold: 50
+>Currently active/activated: 49
+>Two listings sent through via REAXML. There will be a race condition where:
+>During the product_options resolutions, both requests will get a count of 49 and therefore successfully save both listing as active.
  
 ##Expected Behaviour:
 >Based on the above use case, only one listing is made active, the other one will be made in to draft mode.
@@ -31,15 +31,15 @@
 >Currenly there is a lock in Agency#purchase and the new lock will be added before publisher is created. So we also tested whether row lock can be acquired recursively.
 >Here is the example:
 <pre><code>
-	>def try_lock
-	>ActiveRecord::Base.transaction do
-   	>Legacy::Agency.find("A05784", :lock => true)
-	>ActiveRecord::Base.transaction do
-    >Legacy::Agency.find("A05784", :lock => true)
-    >p "Oh yes!"
-	>end
-	>end
-	>end
+	def try_lock
+		ActiveRecord::Base.transaction do
+   			Legacy::Agency.find("A05784", :lock => true)
+			ActiveRecord::Base.transaction do
+    			Legacy::Agency.find("A05784", :lock => true)
+    			p "Oh yes!"
+			end
+		end
+	end
 </code></pre>
 >Result: "Oh yes!" is printed out.		 
 
