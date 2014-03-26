@@ -1,9 +1,10 @@
 ##Use Case:
-<p>Threshold: 50<\p>
-<p>Currently active/activated: 49<\p>
-<p>Two listings sent through via REAXML. There will be a race condition where:<\p>
-During the product_options resolutions, both requests will get a count of 49 and therefore successfully save both listing as active.
-[Here is the story](https://jira.rea-group.com:8443/browse/DD-42,"hehe")
+<p>Threshold: 50
+<p>Currently active/activated: 49
+<p>Two listings sent through via REAXML. There will be a race condition where:
+<p>During the product_options resolutions, both requests will get a count of 49 and therefore successfully save both listing as active.
+
+[Here is the story](https://jira.rea-group.com:8443/browse/DD-42)
  
 ##Expected Behaviour:
 Based on the above use case, only one listing is made active, the other one will be made in to draft mode.
