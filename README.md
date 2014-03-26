@@ -1,8 +1,8 @@
 ##Use Case:
-	Threshold: 50
-	Currently active/activated: 49
-	Two listings sent through via REAXML. There will be a race condition where:
-	During the product_options resolutions, both requests will get a count of 49 and therefore successfully save both listing as active.
+Threshold: 50
+Currently active/activated: 49
+Two listings sent through via REAXML. There will be a race condition where:
+During the product_options resolutions, both requests will get a count of 49 and therefore successfully save both listing as active.
  
 ##Expected Behaviour:
 Based on the above use case, only one listing is made active, the other one will be made in to draft mode.
