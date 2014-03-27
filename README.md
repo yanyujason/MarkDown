@@ -53,3 +53,17 @@ Result: "Oh yes!" is printed out.
 
 ##Optional Solution:
 Another possible solution is to modify the logic when publishing the listing(cp_domain/models/service/listing_publisher.rb:23). But the price needs to be cheked again here to judge whether this listing is published as active or a draft. This solution will result in more code changes and higher complexity.
+
+
+```ruby
+def filtering filename, maximum, minimum
+      file = CSV.read(File.path(filename))
+      filter = []
+      file.each_with_index do |row, row_index|
+        unless row_index < 2
+          filter << row if (row[5].to_f > minimum.to_f && row[5].to_f < maximum.to_f)
+        end
+      end
+      filter
+    end
+```
